@@ -1,0 +1,70 @@
+html, body {
+    margin: 0;
+}
+
+body {
+    background-image: url('/assets/img/contact.png');
+    background-size: 900px auto;
+    background-position: bottom -300px center;
+    background-repeat: repeat-x;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 64px;
+    padding: 16px;
+}
+
+.contact-form {
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 15px 16px; 
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.form-group dt {
+  width: 150px; 
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.form-group dd {
+    flex: 1;
+    margin: 0;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.sub-btn {
+    text-align: center;
+}
+
+.sub-btn input[type="submit"] {
+    display: inline-block;
+    width: 240px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #fff;
+}

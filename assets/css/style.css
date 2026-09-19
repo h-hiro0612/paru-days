@@ -1,0 +1,33 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body  {
+    padding: 0 16px;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+    opacity: .5;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    display: inline-block;
+    border-bottom: 2px solid #7B8063;
+    font-size: 32px;
+}
+
+.heading {
+    text-align: center;
+}
+

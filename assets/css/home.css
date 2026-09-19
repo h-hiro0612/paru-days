@@ -1,0 +1,607 @@
+/* ヘッダー */
+ul.navi-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.navi-menu li a {
+  color: #222222;
+  display: inline-block;
+  transition: transform  .5s;
+}
+
+.navi-menu li a:hover {
+  transform: rotateY(360deg);
+  
+}
+
+.hamburger nav {
+  width: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -375px;
+  bottom: 0;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+  background: #fff;
+}
+
+.hamburger nav .inner {
+  padding: 25px;
+}
+
+.hamburger nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hamburger nav .inner ul li {
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+.hamburger nav .inner ul li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 1rem;
+  transition-duration: 0.2s;
+}
+
+.hamburger nav .inner ul li a:hover {
+  background-color: #e4e4e4;
+}
+
+.open nav {
+  opacity: 1;
+  left: 0;
+  display: block;
+}
+
+.hamburger .toggle-btn {
+  display: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index: 30;
+  background-color: rgba(65, 52, 43, 0.863);
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  left: 10px;
+  transition: all 0.4s;
+  border-radius: 4px;
+}
+
+.toggle-btn span:nth-of-type(1) {
+  top: 16px;
+}
+
+.toggle-btn span:nth-of-type(2) {
+  top: 25px;
+}
+
+.toggle-btn span:nth-of-type(3) {
+  top: 34px;
+}
+
+.open .toggle-btn span:nth-of-type(1) {
+  transform: translateY(9px) rotate(-315deg);
+}
+
+.open .toggle-btn span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.open .toggle-btn span:nth-of-type(3) {
+  transform: translateY(-9px) rotate(315deg);
+}
+
+/* 共通 */
+.profile,
+.diary,
+.gallery,
+.goods {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+
+.profile.is-show,
+.diary.is-show,
+.gallery.is-show,
+.goods.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.more_btn {
+  display: block;
+  width: 150px;
+  border: 1px solid #717171;
+  border-radius: 4px;
+  padding: 16px 0;
+  margin: 32px auto;
+  text-align: center;
+  color: #000;
+  background: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* heroセクション */
+
+section.hero {
+  max-width: 1900px;     /* PCでの最大横幅を固定 */
+  height: 85vh;          /* PCでの高さを適正サイズに固定（100vhにしなくてもOK） */
+  margin: 40px auto 0;         /* 画面中央に配置 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.hero .hero_image {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+section.hero .hero_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+section.hero .title {
+  text-align: center;
+  margin: 0;
+}
+
+section.hero .title h1 {
+  color: #222;
+  font-size: 72px;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS PMincho", serif;
+}
+
+/* プロフィール */
+section.profile, section.gallery {
+  position: relative;
+  margin: 0 -16px;
+  padding: clamp(80px, 5vh, 100px) 5% clamp(120px, 8vh, 200px);
+  background-image: 
+    url('/assets/img/top_wave.svg'),
+    url('/assets/img/bottom_wave.svg'),
+    linear-gradient(#F2EDE9, #F2EDE9);
+
+  /* 3. 背景の配置位置 */
+  background-position: 
+    center top -60px,    /* 上の波 */
+    center bottom, /* 下の波 */
+    center center; /* グラデーション */
+
+  /* 4. 繰り返し防止 */
+  background-repeat: repeat-x, repeat-x, no-repeat;
+
+  /* 5. PC時の波の表示サイズ */
+  background-size: 
+    100% 200px,             /* 上の波：画面幅に比例して高さも変化 */
+    100% 200px,             /* 下の波：画面幅に比例して高さも変化 */
+    100% calc(100% - 250px);
+
+  margin-top: 64px;
+}
+
+.prof_container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.prof-image {
+  width: 30%;
+}
+
+.prof-image img {
+  width: 100%;
+  display: block;
+
+}
+
+.prof-text {
+  width: 40%;
+  font-size: clamp(14px, 1vw + 6px, 18px);
+  line-height: 2;
+  padding: 16px 0;
+}
+
+/* 日記 */
+section.gallery {
+  padding: clamp(80px, 5vh, 100px) 5% clamp(200px, 5vh, 250px);
+}
+
+.diary-items {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.diary-items a {
+  transition: opacity .8s;
+}
+
+.diary-item {
+  border: 1px solid #717171;
+  border-radius: 4px;
+  max-width: 320px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diary-pic img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.diary-text {
+  padding: 8px;
+  color: #000;
+}
+
+p.day {
+  margin-bottom: 4px;
+}
+
+p.diary-title {
+  font-size: 1.2em;
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #717171;
+}
+
+p.diary-comment {
+  margin-top: 12px;
+}
+
+.carousel-dots {
+  display: none;
+}
+
+
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: #b4b3b3;
+  cursor: pointer;
+
+}
+
+.carousel-dots .dot.active {
+  background-color: #333;
+}
+
+
+/* 写真集 */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+}
+
+.gallery-items {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 12px;
+}
+
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px
+}
+
+
+.gallery-item img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.gallery-pic {
+  width: 30%;
+}
+
+.gallery-pic img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item img:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+/* モーダル全体の背景（通常は非表示） */
+.modal {
+  display: none; /* 初期状態は非表示 */
+  position: fixed; /* 画面に固定 */
+  z-index: 1000; /* ヘッダーなど他の要素より手前に表示 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 黒の半透明背景 */
+  justify-content: center; /* 子要素（画像）を中央に配置 */
+  align-items: center; /* 子要素（画像）を中央に配置 */
+  cursor: pointer; /* クリック可能であることを示す */
+}
+
+/* モーダル内の画像 */
+.modal-content {
+  max-width: 90vw; /* 画面幅の90%を最大とする */
+  max-height: 80vh; /* 画面高さの80%を最大とする */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* 画像の比率を保つ */
+  border-radius: 8px; /* 角を少し丸くする */
+  background: #eae9e9;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* 影をつけて立体感を出す */
+  
+  /* 開いた時のアニメーション（ふんわり拡大） */
+  animation: zoomIn 0.3s ease;
+}
+
+/* 閉じるボタン（×） */
+.modal-close {
+  position: absolute; /* モーダルに対して絶対配置 */
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* グッズ */
+section.goods {
+  background-image: url('/assets/img/goodsbackground.png');
+  background-size: 1376px 297px;
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  padding-bottom: 300px;
+  margin: 0 -16px;
+}
+
+.goods-items {
+  margin-top: 32px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.goods-item {
+  position: relative;
+    border: 6px solid #F2EDE9;
+  border-radius: 12px;
+}
+
+.goods-item-img {
+  width: 100%;
+
+} 
+
+.goods-item-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.goods-items a::before {
+    width: 70%;
+    height: 40%;
+    background: rgba(0,0,0,.6);
+    color: #fff;
+    border-radius: 12px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    font-weight: 700;
+    font-size: clamp(8px, 2vw, 48px);
+    padding: 12px;
+}
+
+.goods-items a.kisekae1::before {
+    content: "LINE着せ替え①";
+}
+
+.goods-items a.kisekae2::before {
+    content: "LINE着せ替え②";
+}
+
+.goods-items a.stamp1::before {
+    content: "LINEスタンプ①";
+}
+
+.goods-items a.stamp2::before {
+    content: "LINEスタンプ②";
+}
+
+.goods-items a.stamp3::before {
+    content: "LINEスタンプ③";
+}
+
+.goods-items a.suzuri::before {
+    content: "suzuriグッズ販売";
+}
+
+.goods-items a:hover::before {
+  opacity: 1;
+}
+
+.goods-tex {
+  display: none;
+}
+
+/* 拡大アニメーションの定義 */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* スマホ表示（画面幅 768px 以下） */
+@media (max-width: 768px) {
+
+   .hamburger .toggle-btn {
+    display: block;
+    z-index: 100;
+   }
+
+   .pc-nav {
+    display: none;
+   }
+
+  section.hero {
+    width: 100%;          /* 横幅いっぱいに広げる */
+    height: auto;         /* 高さを固定せずコンテンツに合わせる */
+    max-width: none;      /* 上限を解除 */
+  }
+
+  section.hero .hero_image {
+    max-height: none;
+  }
+
+  section.hero .hero_image img {
+    height: auto;         /* スマホでは画面幅に合わせて伸縮 */
+  }
+
+  section.hero .title h1 {
+  color: #222;
+  font-size: 32px;
+  }
+
+  section.profile  {
+  padding: clamp(180px, 5vh, 100px) 5%;
+  }
+
+  .prof_container {
+    flex-direction: column;
+    /* スマホでは上下余白を小さく */
+    padding: 21px 16px;
+    align-items: center;
+  }
+
+  .prof-image {
+    width: 70%;
+  }
+
+  .prof-text {
+    width: 90%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+/* 日記   */
+.diary-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.diary-items {
+  display: flex;
+  transition: transform 0.5s ease;
+  justify-content: normal;
+  padding: 0 12%;
+  box-sizing: border-box;
+}
+
+.diary-items a {
+  flex: 0 0 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+ 
+ /* ギャラリー  */
+ .gallery-container {
+  display: block;
+ }
+
+ .gallery-pic {
+  display: none;
+ }
+
+ .gallery-items {
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+ }
+
+ /* グッズ */
+  section.goods {
+    padding: 0 16px 100px;
+    background-size: 375px 80px;
+  }
+
+  .goods-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .goods-tex {
+    display: block;
+    text-align: center;
+    color: #333;
+  }
+
+}
+
+@media (max-width: 1150px) {
+
+.prof-text p {
+  margin: 0;
+}
+}
