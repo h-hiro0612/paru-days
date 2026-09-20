@@ -187,8 +187,8 @@ section.profile, section.gallery {
   margin: 0 -16px;
   padding: clamp(80px, 5vh, 100px) 5% clamp(120px, 8vh, 200px);
   background-image: 
-    url('./assets/img/top_wave.svg'),
-    url('./assets/img/bottom_wave.svg'),
+    url('../img/top_wave.svg'),
+    url('../img/bottom_wave.svg'),
     linear-gradient(#F2EDE9, #F2EDE9);
 
   /* 3. 背景の配置位置 */
