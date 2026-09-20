@@ -393,7 +393,7 @@ p.diary-comment {
 
 /* グッズ */
 section.goods {
-  background-image: url('./assets/img/goodsbackground.png');
+  background-image: url('../img/goodsbackground.png');
   background-size: 1376px 297px;
   background-repeat: repeat-x;
   background-position: bottom center;
