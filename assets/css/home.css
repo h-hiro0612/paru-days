@@ -479,6 +479,10 @@ section.goods {
   display: none;
 }
 
+.goods div.container {
+  padding: 0 16px;
+}
+
 /* 拡大アニメーションの定義 */
 @keyframes zoomIn {
   from { transform: scale(0.8); opacity: 0; }
@@ -486,8 +490,8 @@ section.goods {
 }
 
 
-/* スマホ表示（画面幅 768px 以下） */
-@media (max-width: 768px) {
+/* スマホ表示（画面幅 767px 以下） */
+@media (max-width: 767px) {
 
    .hamburger .toggle-btn {
     display: block;

@@ -56,24 +56,38 @@ $(function() {
 // 3. スクロール時のふわっと表示（フェードイン）
 // ==========================================
 function checkFadeIn() {
+    const scroll = $(window).scrollTop();
+    const windowHeight = $(window).height();
+
     $('.profile, .diary, .gallery, .goods, .contact').each(function() {
         const sectionTop = $(this).offset().top;
-        const scroll = $(window).scrollTop();
-        const windowHeight = $(window).height();
 
-        if (scroll > sectionTop - windowHeight + 180) {
+        // スマホ(767px以下)とPCで発火タイミング（オフセット値）を調整
+        // スマホは早め（80px手前）、PCは少し深め（180px手前）で発火
+        const offset = (window.innerWidth <= 767) ? 80 : 180;
+
+        // 1. スクロール位置に基づく判定
+        // 2. 画面最上部付近（100px以内）にいる場合は、初期表示領域にかかるセクションを強制表示
+        if (scroll > sectionTop - windowHeight + offset || (scroll < 100 && sectionTop < windowHeight)) {
             $(this).addClass('is-show');
         }
     });
 }
 
-// スクロール時およびページ読み込み（リロード）時に実行
-$(window).on('scroll load', function() {
+// スクロール時およびリロード・読み込み時に実行
+$(window).on('scroll load resize', function() {
     checkFadeIn();
 });
 
-// DOM構築完了時（DOMContentLoaded）にも念のため初期判定を実行
-checkFadeIn();
+// DOM構築完了時（DOMContentLoaded）に実行
+$(function() {
+    checkFadeIn();
+});
+
+// 画像などのアセットが完全に読み込まれた後（高さ確定後）に再判定
+$(window).on('load', function() {
+    checkFadeIn();
+});
 
 
 // ==========================================
@@ -89,7 +103,7 @@ if (track && track.children.length > 0) {
     let timerId = null;
     let firstClone = null; // クローン保持用
 
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
 
      function updateDots(index) {
         if (dots.length === 0) return;
